@@ -93,22 +93,7 @@ namespace E_CommerceAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                //_unit.BooksRepositry.update
-                //fetch by id and change way
-                //Book book = _unit.BooksRepositry.selectbyid(id);
-                //if (book == null)
-                //{
-                //    return NotFound();
-                //}
-                //else
-                //{
-                //    book.title = bookDTO.title;
-                //    book.price = bookDTO.price;
-                //    book.publishdate = bookDTO.publishdate;
-                //    book.srock = bookDTO.srock;
-                //    book.author_id = bookDTO.author_id;
-                //    book.cat_id = bookDTO.cat_id;
-                //}
+                
                 Product product = new Product()
                 {
                     id = id,
