@@ -2,7 +2,6 @@
 using E_CommerceAPI.Models;
 using E_CommerceAPI.UnitOfWork;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -17,7 +16,6 @@ namespace E_CommerceAPI.Controllers
         public ProductsController(UnitOFWork _unit)
         {
             this._unit = _unit;
-            
 
         }
         [HttpGet]
