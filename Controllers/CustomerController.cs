@@ -56,7 +56,9 @@ namespace E_CommerceAPI.Controllers
                 return BadRequest(result.Errors);
             }
         }
+
         [HttpPut]
+        [Authorize]
         public IActionResult editprofile(EditCustomerDTO _customer)
         {
             if (ModelState.IsValid)
@@ -85,6 +87,7 @@ namespace E_CommerceAPI.Controllers
         }
 
         [HttpPost("changepassword")]
+        [Authorize]
         public IActionResult changePassword(ChangePasswordDTO _changePassword)
         {
             if (ModelState.IsValid)
@@ -104,7 +107,7 @@ namespace E_CommerceAPI.Controllers
             }
         }
         [HttpGet]
-        // [Authorize(Roles ="admin")]
+        [Authorize(Roles ="admin")]
         //  [AllowAnonymous]
         public IActionResult getAll()
         {
@@ -127,6 +130,7 @@ namespace E_CommerceAPI.Controllers
             return Ok(CustomerDTO);
         }
         [HttpGet("{id}")]
+        [Authorize("admin")]
         public IActionResult getById(string id)
         {
             //By Role

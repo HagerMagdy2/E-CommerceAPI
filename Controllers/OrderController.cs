@@ -1,6 +1,7 @@
 ﻿using E_CommerceAPI.DTOs.OrderDTO;
 using E_CommerceAPI.Models;
 using E_CommerceAPI.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace E_CommerceAPI.Controllers
             this._unit = _unit;
         }
         [HttpPost]
+        [Authorize]
         public IActionResult add(AddOrderDTO _order)
         {
             Order order = new Order()
@@ -62,6 +64,7 @@ namespace E_CommerceAPI.Controllers
         }
         
         [HttpDelete]
+        [Authorize]
         public IActionResult delete(int id)
         {
             var order_id = _unit.OrdersRepositry.selectbyid(id);
@@ -103,6 +106,7 @@ namespace E_CommerceAPI.Controllers
             //}
             //dont know if it work or not i will check later
             [HttpPut]
+        [Authorize]
         public IActionResult EditOrder(int orderId, EditOrderDTO _order)
         {
 

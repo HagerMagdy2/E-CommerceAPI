@@ -19,6 +19,7 @@ namespace E_CommerceAPI.Controllers
 
         }
         [HttpGet]
+        [Authorize]
 
         //public IActionResult getAll()
         //{
@@ -66,6 +67,7 @@ namespace E_CommerceAPI.Controllers
 
 
         [HttpGet("{id}")]
+        [Authorize("admin")]
         public IActionResult getById(int id)
         {
             Product product = _unit.ProductsRepositry.selectbyid(id);
@@ -89,7 +91,7 @@ namespace E_CommerceAPI.Controllers
             }
         }
         [HttpPost]
-        //  [Authorize(Roles ="admin")]
+         [Authorize(Roles ="admin")]
         public IActionResult add(AddProductDTO productDTO)
         {
             if (ModelState.IsValid)
@@ -111,7 +113,7 @@ namespace E_CommerceAPI.Controllers
             return BadRequest(ModelState);
         }
         [HttpPut("{id}")]
-      //  [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
        
         public IActionResult edit(int id, AddProductDTO productDTO)
         {
@@ -136,7 +138,7 @@ namespace E_CommerceAPI.Controllers
             return BadRequest(ModelState);
         }
         [HttpDelete]
-      //  [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
        
         public IActionResult delete(int id)
         {

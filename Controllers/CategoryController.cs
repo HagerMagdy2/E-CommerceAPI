@@ -17,6 +17,7 @@ namespace E_CommerceAPI.Controllers
             
         }
         [HttpGet]
+        [Authorize]
 
         public IActionResult getAll()
         {
@@ -37,7 +38,7 @@ namespace E_CommerceAPI.Controllers
 
     
         [HttpPost]
-        //  [Authorize(Roles ="admin")]
+         [Authorize(Roles ="admin")]
         public IActionResult add(AddCategoryDTO categoryDTO)
         {
             if (ModelState.IsValid)
@@ -54,7 +55,7 @@ namespace E_CommerceAPI.Controllers
             return BadRequest(ModelState);
         }
         [HttpPut("{id}")]
-       // [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
 
         public IActionResult edit(int id, AddCategoryDTO categoryDTO)
         {
@@ -75,7 +76,7 @@ namespace E_CommerceAPI.Controllers
             return BadRequest(ModelState);
         }
         [HttpDelete]
-       // [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
 
         public IActionResult delete(int id)
         {
