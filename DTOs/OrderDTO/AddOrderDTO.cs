@@ -5,6 +5,6 @@
 
 
         public string cust_id { get; set; }
-        public List<AddOrderDetailsDTO> books { get; set; } = new List<AddOrderDetailsDTO>();
+        public List<AddOrderDetailsDTO> products { get; set; } = new List<AddOrderDetailsDTO>();
     }
 }

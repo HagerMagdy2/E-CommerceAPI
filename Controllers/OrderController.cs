@@ -29,7 +29,7 @@ namespace E_CommerceAPI.Controllers
             _unit.OrdersRepositry.add(order);
             _unit.savechanges();
             decimal totalPrice = 0;
-            foreach (var item in _order.books)
+            foreach (var item in _order.products)
             {
                 Product product = _unit.ProductsRepositry.selectbyid(item.product_id);
                 totalPrice = totalPrice + (product.price * item.quantity);

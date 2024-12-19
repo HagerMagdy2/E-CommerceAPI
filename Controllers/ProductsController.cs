@@ -19,11 +19,36 @@ namespace E_CommerceAPI.Controllers
 
         }
         [HttpGet]
-       
+
+        //public IActionResult getAll()
+        //{
+        //    List<Product> products = _unit.ProductsRepositry.selectall();
+        //    List<DisplayProductDTO> productsDTO = new List<DisplayProductDTO>();
+        //    foreach (Product product in products)
+        //    {
+        //        DisplayProductDTO productDTO = new DisplayProductDTO()
+        //        {
+        //            id = product.id,
+        //            product_name = product.product_name,
+        //            price = product.price,
+        //            stock = product.stock,
+        //            category = product.category.name,
+
+        //        };
+        //        productsDTO.Add(productDTO);
+        //    }
+        //    return Ok(productsDTO);
+        //}
         public IActionResult getAll()
         {
+            if (_unit.ProductsRepositry == null)
+            {
+                return StatusCode(500, "Products Repository is not initialized.");
+            }
+
             List<Product> products = _unit.ProductsRepositry.selectall();
             List<DisplayProductDTO> productsDTO = new List<DisplayProductDTO>();
+
             foreach (Product product in products)
             {
                 DisplayProductDTO productDTO = new DisplayProductDTO()
@@ -33,12 +58,12 @@ namespace E_CommerceAPI.Controllers
                     price = product.price,
                     stock = product.stock,
                     category = product.category.name,
-                    
                 };
                 productsDTO.Add(productDTO);
             }
             return Ok(productsDTO);
         }
+
 
         [HttpGet("{id}")]
         public IActionResult getById(int id)
