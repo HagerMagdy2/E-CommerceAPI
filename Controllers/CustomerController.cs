@@ -136,7 +136,7 @@ namespace E_CommerceAPI.Controllers
             //By Role
             var cus = (Customer)userManager.GetUsersInRoleAsync("customer").Result.Where(n => n.Id == id).FirstOrDefault();
             //tofind any user without role
-            // var cust = (Customer)userManager.FindByIdAsync(id).Result;
+            // var cus = (Customer)userManager.FindByIdAsync(id).Result;
             if (cus == null) return NotFound();
             SelectCustomerDTO CustomerDTO = new SelectCustomerDTO()
             {
