@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 //using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Stripe;
 using System.Text;
 //using Microsoft.EntityFrameworkCore;
 
@@ -53,6 +54,13 @@ namespace E_CommerceAPI
                 };
 
             });
+            #endregion
+
+            #region Payment
+            //builder.Services.AddControllersWithViews();
+            //builder.Services.Configure<StripeSetting>(builder.Configuration.GetSection("StripeSettings"));
+            StripeConfiguration.ApiKey = builder.Configuration.GetSection("StripeSettings:SecretKey").Get<string>();
+
             #endregion
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
