@@ -13,7 +13,7 @@ namespace E_CommerceAPI.Controllers
         {
             var options1 = new PaymentIntentCreateOptions
             {
-                Amount = (long)await _cartRepository.GetPrice(id.ToString()),
+                Amount = (long) 1000,
                 Currency = "usd",
                 PaymentMethodTypes = new List<string> { "card" },
                 Metadata = new Dictionary<string, string>

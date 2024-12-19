@@ -9,6 +9,7 @@ namespace E_CommerceAPI.UnitOfWork
         GenericRepository<Product> productsRepository;
         GenericRepository<Order> ordersRepository;
         GenericRepository<OrderDetails> orderDetailsRepository;
+        GenericRepository<Category> categoriesRepository;
         
 
         
@@ -26,6 +27,17 @@ namespace E_CommerceAPI.UnitOfWork
                     productsRepository = new GenericRepository<Product>(db);
                 }
                 return productsRepository;
+            }
+
+        } public GenericRepository<Category> CategoriesRepositry
+        {
+            get
+            {
+                if (categoriesRepository == null)
+                {
+                    categoriesRepository = new GenericRepository<Category>(db);
+                }
+                return categoriesRepository;
             }
 
         }

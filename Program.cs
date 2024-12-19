@@ -1,5 +1,6 @@
 
 using E_CommerceAPI.Models;
+using E_CommerceAPI.UnitOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 
@@ -23,12 +24,13 @@ namespace E_CommerceAPI
             builder.Services.AddControllers();
 
             #region Connection DB
-            builder.Services.AddDbContext<ECommerceContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefautCon")));
             //builder.Services.AddDbContext<ECommerceContext>(options =>
-            //{
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefautCon"));
-            //});
+            //    options.UseSqlServer(builder.Configuration.GetConnectionString("DefautCon")));
+            builder.Services.AddDbContext<ECommerceContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefautCon"));
+            });
+            builder.Services.AddScoped<UnitOFWork>();
             #endregion
 
             builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ECommerceContext>();

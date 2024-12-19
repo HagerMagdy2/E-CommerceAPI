@@ -7,7 +7,7 @@ namespace E_CommerceAPI.Models
     {
         public int id { get; set; }
         [StringLength(150)]
-        public string producr_name { get; set; }
+        public string product_name { get; set; }
         [Column(TypeName = "money")]
         public decimal price { get; set; }
         public int stock { get; set; }

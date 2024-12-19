@@ -35,11 +35,7 @@ namespace E_CommerceAPI.Repository
             TEntity obj = db.Set<TEntity>().Find(id);
             db.Set<TEntity>().Remove(obj);
         }
-        public void deleteOD(int id, int second)
-        {
-            TEntity obj = db.Set<TEntity>().Find(id, second);
-            db.Set<TEntity>().Remove(obj);
-        }
+
 
         public void save()
         {

@@ -29,10 +29,11 @@ namespace E_CommerceAPI.Controllers
                 DisplayProductDTO productDTO = new DisplayProductDTO()
                 {
                     id = product.id,
-                    producr_name = product.producr_name,
+                    product_name = product.product_name,
                     price = product.price,
-                    srock = product.stock,
+                    stock = product.stock,
                     category = product.category.name,
+                    
                 };
                 productsDTO.Add(productDTO);
             }
@@ -52,11 +53,11 @@ namespace E_CommerceAPI.Controllers
             {
                 DisplayProductDTO productDTO = new DisplayProductDTO()
                 {
-                    id = product.id,
-                    producr_name = product.producr_name,
+                    id = id,
+                    product_name = product.product_name,
                     price = product.price,
                    
-                    srock = product.stock,
+                    stock = product.stock,
                     category = product.category.name,
                 };
                 return Ok(productDTO);
@@ -70,10 +71,10 @@ namespace E_CommerceAPI.Controllers
             {
                 Product product = new Product()
                 {
-                    producr_name = productDTO.producr_name,
+                    product_name = productDTO.product_name,
                     price = productDTO.price,
                     
-                    stock = productDTO.srock,
+                    stock = productDTO.stock,
                     
                     cat_id = productDTO.cat_id,
                 };
@@ -85,7 +86,7 @@ namespace E_CommerceAPI.Controllers
             return BadRequest(ModelState);
         }
         [HttpPut("{id}")]
-        [Authorize(Roles = "admin")]
+      //  [Authorize(Roles = "admin")]
        
         public IActionResult edit(int id, AddProductDTO productDTO)
         {
@@ -95,10 +96,10 @@ namespace E_CommerceAPI.Controllers
                 Product product = new Product()
                 {
                     id = id,
-                    producr_name = productDTO.producr_name,
+                    product_name = productDTO.product_name,
                     price = productDTO.price,
                     
-                    stock = productDTO.srock,
+                    stock = productDTO.stock,
                     
                     cat_id = productDTO.cat_id,
                 };
@@ -110,7 +111,7 @@ namespace E_CommerceAPI.Controllers
             return BadRequest(ModelState);
         }
         [HttpDelete]
-        [Authorize(Roles = "admin")]
+      //  [Authorize(Roles = "admin")]
        
         public IActionResult delete(int id)
         {

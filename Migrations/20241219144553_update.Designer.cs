@@ -4,6 +4,7 @@ using E_CommerceAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_CommerceAPI.Migrations
 {
     [DbContext(typeof(ECommerceContext))]
-    partial class ECommerceContextModelSnapshot : ModelSnapshot
+    [Migration("20241219144553_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,7 +111,7 @@ namespace E_CommerceAPI.Migrations
                     b.Property<decimal>("price")
                         .HasColumnType("money");
 
-                    b.Property<string>("product_name")
+                    b.Property<string>("producr_name")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
@@ -152,13 +155,13 @@ namespace E_CommerceAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7537d183-d0ba-4867-afa0-089be7f2c031",
+                            Id = "aa0bba6e-c7e8-4809-a603-187be28d2d35",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "e358f6e1-8a8a-4ad7-90ad-18766b5e8f3e",
+                            Id = "01095b8a-490c-4500-b55d-7127618298de",
                             Name = "customer",
                             NormalizedName = "CUSTOMER"
                         });
